@@ -9,6 +9,7 @@ logs
 npm-debug.log*
 
 .env
+NOTES.md
 
 # Runtime data
 pids
