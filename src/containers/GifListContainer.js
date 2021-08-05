@@ -20,8 +20,7 @@ export default class GifListContainer extends Component {
     .then(giphs => this.handleAPICall(giphs))
   } 
 
-  searchFor = (event, query) => {
-    debugger
+  searchFor = (query) => {
     fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=oSCRC8GpSlpuAewxJXok5wurjmdIlgys&limit=3`)
     .then(resp => resp.json())
     .then(giphs => this.handleAPICall(giphs))
