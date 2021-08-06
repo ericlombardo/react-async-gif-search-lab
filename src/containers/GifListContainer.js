@@ -15,13 +15,16 @@ export default class GifListContainer extends Component {
     })
   }
   componentDidMount() {
-    fetch(`https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=oSCRC8GpSlpuAewxJXok5wurjmdIlgys&limit=3`)
+    const apiKey = process.env.REACT_APP_GIPHY_KEY
+    fetch(`https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=${apiKey}&limit=3`)
     .then(resp => resp.json())
     .then(giphs => this.handleAPICall(giphs))
   } 
 
-  searchFor = (query) => {
-    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=oSCRC8GpSlpuAewxJXok5wurjmdIlgys&limit=3`)
+  searchFor = (event, query) => {
+    const apiKey = process.env.REACT_APP_GIPHY_KEY
+    event.preventDefault()
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=${apiKey}&limit=3`)
     .then(resp => resp.json())
     .then(giphs => this.handleAPICall(giphs))
   }
